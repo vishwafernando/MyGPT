@@ -1,0 +1,81 @@
+.rootLayout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.rootLayout header {
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  height: 64px;
+  background: #01060de0;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  color: #ffffff;
+}
+
+.rootLayout header .logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 8px;
+}
+
+.rootLayout header .logo img {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: shake-rotate-shake 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-direction: normal;
+}
+
+@keyframes shake-rotate-shake {
+  0% {
+    transform: translateX(0) rotate(0);
+  }
+  6% {
+    transform: translateX(-6px) rotate(0);
+  }
+  12% {
+    transform: translateX(6px) rotate(0);
+  }
+  18% {
+    transform: translateX(-6px) rotate(0);
+  }
+  24% {
+    transform: translateX(6px) rotate(0);
+  }
+  30% {
+    transform: translateX(0) rotate(0);
+  }
+  50% {
+    transform: translateX(0) rotate(360deg);
+  }
+  56% {
+    transform: translateX(-6px) rotate(360deg);
+  }
+  62% {
+    transform: translateX(6px) rotate(360deg);
+  }
+  68% {
+    transform: translateX(-6px) rotate(360deg);
+  }
+  74% {
+    transform: translateX(6px) rotate(360deg);
+  }
+  80% {
+    transform: translateX(0) rotate(360deg);
+  }
+  100% {
+    transform: translateX(0) rotate(360deg);
+  }
+}
+
+.rootLayout main {
+  flex: 1;
+  overflow: hidden;
+  padding: 0;
+}

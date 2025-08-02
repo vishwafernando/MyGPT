@@ -1,0 +1,58 @@
+.endchat {
+  padding-bottom: 50px;
+}
+.newForm {
+  width: 90%; 
+  max-width: 900px; 
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%); 
+  background-color: #2c2937;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+  gap: 20px;
+  padding: 25px 20px;
+}
+
+input {
+  flex: 1;
+  border: none;
+  padding: 20px;
+  outline: none;
+  background-color: transparent;
+  color: white;
+}
+.newForm button {
+  border-radius: 50%;
+  background-color: #605e68;
+  border: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.newForm label {
+  border-radius: 50%;
+  background-color: #605e68;
+  border: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.newForm button img {
+  width: 16px;
+  height: 16px;
+}
+
+.newForm label img {
+  width: 16px;
+  height: 16px;
+}

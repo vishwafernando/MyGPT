@@ -1,0 +1,32 @@
+.error-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #181818;
+  color: #fff;
+}
+.error-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+  animation: shake 0.8s infinite alternate;
+}
+@keyframes shake {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+button {
+  margin-top: 24px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  background: #fff;
+  color: #dd2476;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #ffe0ef;
+}

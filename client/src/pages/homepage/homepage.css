@@ -1,0 +1,252 @@
+.homepage {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  height: 100vh;
+  margin-top: -80px;
+}
+
+@media screen and (max-width: 1024px) {
+  .homepage {
+    flex-direction: column;
+    gap: 32px;
+    height: auto;
+    margin-top: 0;
+    padding: 32px 0 0 0;
+  }
+  .left {
+    align-items: stretch;
+    gap: 12px;
+    padding: 0 24px;
+  }
+  .left h1 {
+    font-size: 48px;
+    text-align: left;
+  }
+  .left h2,
+  .left h3 {
+    max-width: 100%;
+    font-size: 16px;
+    text-align: left;
+  }
+  .left a {
+    width: 100%;
+    font-size: 13px;
+    padding: 12px 0;
+    margin-top: 16px;
+  }
+  .right {
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 24px;
+    height: auto;
+  }
+  .right .imgcontainer {
+    width: 100%;
+    height: 180px;
+    border-radius: 20px;
+    min-width: 0;
+  }
+
+  .footer .footer-links {
+    font-size: 11px;
+    gap: 6px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .homepage {
+    gap: 20px;
+    padding: 20px 0;
+  }
+  .left h1 {
+    font-size: 36px;
+  }
+  .left h2,
+  .left h3 {
+    font-size: 14px;
+  }
+  .left a {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+  .right .imgcontainer {
+    height: 150px;
+    border-radius: 16px;
+  }
+}
+
+.left {
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.left h1 {
+  font-size: 128px;
+  background: linear-gradient(to right, #217bfe, #e55571);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.left h2 {
+  font-weight: bold;
+  max-width: 80%;
+}
+
+.left h3 {
+  font-weight: 400;
+  max-width: 80%;
+}
+
+.left a {
+  padding: 15px 25px;
+  border-radius: 20px;
+  background-color: #217bfe;
+  color: white;
+  font-size: 14px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.left a:hover {
+  background-color: white;
+  color: #217bfe;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.right .imgcontainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-color: #140e2d;
+  border-radius: 50px;
+  width: 80%;
+  height: 50%;
+}
+
+.right .imgcontainer .bgContainer {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50px;
+}
+
+.right .imgcontainer .bgContainer .bg {
+  background-image: url("/bg.png");
+  width: 200%;
+  height: 100%;
+  opacity: 0.2;
+  background-size: auto 100%;
+  animation: 8s ease-in-out infinite alternate bganimation;
+}
+
+.right .imgcontainer .bot {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: 3s ease-in-out infinite alternate botanimation;
+}
+
+.right .imgcontainer .chat {
+  position: absolute;
+  bottom: -30px;
+  right: -50px;
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  gap: 10px;
+  background-color: #2c2937;
+  border-radius: 10px;
+}
+
+.right .imgcontainer .chat-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.orbital {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  opacity: 0.05;
+  animation: 100s linear infinite rotateOrbital;
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.footer .footer-logo {
+  width: 16px;
+  height: 16px;
+}
+
+.footer .footer-links {
+  display: flex;
+  gap: 10px;
+  color: #8888;
+  font-size: 12px;
+}
+
+.footer .footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer .footer-links a:hover {
+  text-decoration: underline;
+}
+
+@keyframes rotateOrbital {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(60deg);
+  }
+}
+
+@keyframes botanimation {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+}
+
+@keyframes bganimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

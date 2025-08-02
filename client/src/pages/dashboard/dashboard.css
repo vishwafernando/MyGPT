@@ -1,0 +1,117 @@
+.dashboard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.texts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  gap: 50px;
+}
+
+.texts h1 {
+  font-size: 64px;
+  background: linear-gradient(to right, #217bfe, #e55571);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dashboard .logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dashboard .logo img {
+  width: 64px;
+  height: 64px;
+  margin-right: 10px;
+}
+
+.dashboard .options {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.dashboard .option {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  padding: 20px;
+  border: 1px solid #555;
+  border-radius: 20px;
+}
+
+.dashboard .option img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.dashboard .formContainer {
+  margin-top: auto;
+  margin-bottom: 20px;
+  width: 90%; 
+  max-width: 900px; 
+  position: absolute;
+  bottom: 0px;
+  left: 61%; /* Move more to the right */
+  transform: translateX(-50%); /* Keep it centered in its position */
+  background-color: #2c2937;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+  gap: 20px;
+  padding: 25px 20px;
+}
+
+.formContainer form {
+  height: 100%;
+  width: 100%;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formContainer input {
+  flex: 1;
+  padding: 20px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #ececec;
+  border-radius: 4px;
+}
+
+.formContainer button {
+  background-color: #605e68;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.formContainer img {
+  width: 16px;
+  height: 16px;
+}
