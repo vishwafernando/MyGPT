@@ -60,7 +60,7 @@ You'll need to create accounts and get API keys from these services. Do this fir
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd MyGPT-public
+cd MyGPT-main
 
 # Install all dependencies (frontend + backend)
 npm run install
@@ -176,7 +176,7 @@ npm run clean
 ## File Structure Overview
 
 ```
-MyGPT-public/
+MyGPT-main/
 ├── backend/
 │   ├── .env                 # ← Create this file
 │   ├── index.js            # Server code

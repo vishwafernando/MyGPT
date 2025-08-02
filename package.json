@@ -14,12 +14,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/MyGPT-public.git"
+    "url": "https://github.com/yourusername/MyGPT-main.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/MyGPT-public/issues"
+    "url": "https://github.com/yourusername/MyGPT-main/issues"
   },
-  "homepage": "https://github.com/yourusername/MyGPT-public#readme",
+  "homepage": "https://github.com/yourusername/MyGPT-main#readme",
   "license": "MIT",
   "author": "Your Name <your.email@example.com>",
   "scripts": {

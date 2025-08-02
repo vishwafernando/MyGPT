@@ -86,7 +86,7 @@ You'll need to obtain the following API keys and service accounts:
 ### 1. Clone the Repository
 ```bash
 git clone <your-repository-url>
-cd MyGPT-public
+cd MyGPT-main
 ```
 
 ### 2. Install Dependencies
@@ -170,7 +170,7 @@ npm run clean
 ## Project Structure
 
 ```
-MyGPTAI-main/
+MyGPT-main/
 ├── backend/                 # Express.js backend
 │   ├── models/             # MongoDB models
 │   │   ├── chat.js         # Chat conversation model
