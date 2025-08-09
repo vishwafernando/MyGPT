@@ -22,19 +22,19 @@
 .dashboardLayout {
   display: flex;
   gap: 50px;
-  height: 100vh; /* lock to viewport height */
+  height: 100vh;
   background-color: #181818;
   position: relative;
-  overflow: hidden; /* prevent page height from growing with sidebar */
+  overflow: hidden;
 }
 
 .dashboardLayout .menu {
   flex: 1;
   transition: transform 0.3s ease-in-out;
-  height: 100vh; /* match viewport */
+  height: 100vh;
   position: sticky;
   top: 0;
-  overflow: hidden; /* delegate scrolling to inner list */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -42,8 +42,8 @@
 .dashboardLayout .content {
   flex: 4;
   background-color: #1b1c1d;
-  height: 100vh; /* fill viewport */
-  overflow-y: auto; /* content scrolls independently */
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .mobile-header {

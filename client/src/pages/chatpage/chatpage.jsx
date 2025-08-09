@@ -13,7 +13,6 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { IKImage } from "imagekitio-react";
 
 const Chatpage = () => {
-  // Direct image download handler
   const handleDirectDownload = async () => {
     if (!modalImg) return;
     const imageUrl = `${import.meta.env.VITE_IMAGE_KIT_ENDPOINT}/${modalImg}`;
@@ -66,14 +65,12 @@ const Chatpage = () => {
         if (!res.ok) throw new Error("API Error");
         return await res.json();
       } catch (e) {
-        // For production, do not show actual error
         throw new Error("Something went wrong. Please try again later.");
       }
     },
   });
 
   if (error) {
-    // Use ErrorScreen for all errors
     return <ErrorScreen message="Something went wrong. Please try again later." />;
   }
   if (isPending) {
@@ -184,7 +181,7 @@ const Chatpage = () => {
           )}
         </div>
       </div>
-      {/* Modal for fullscreen image */}
+      {/* fullscreen image */}
       {modalImg && (
         <div className="image-modal-overlay" onClick={handleCloseModal}>
           <div className="image-modal-content" onClick={e => e.stopPropagation()}>

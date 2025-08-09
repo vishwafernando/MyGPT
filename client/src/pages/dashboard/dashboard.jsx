@@ -56,7 +56,6 @@ const Dashboard = () => {
     if (!text && !imgPath) return;
 
     mutation.mutate({ text: text || "[image]", imgPath });
-    // Reset input
     setMessage("");
     if (textAreaRef.current) {
       textAreaRef.current.style.height = "auto";

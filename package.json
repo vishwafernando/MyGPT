@@ -6,7 +6,7 @@
     "build": "cd client && npm run build",
     "start": "cd backend && node index.js",
     "deploy": "npm run install && npm run build && pm2 start ecosystem.config.json",
-    "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\""
+    "dev": "npx --yes concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\""
   },
   "engines": {
     "node": ">=20"

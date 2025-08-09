@@ -183,9 +183,7 @@ export default function Carousel({
             -(index - 1) * trackItemOffset,
           ];
           const outputRange = [90, 0, -90];
-          // eslint-disable-next-line react-hooks/rules-of-hooks
           const rotateY = useTransform(x, range, outputRange, { clamp: false });
-          // Choose background image for each card
           let bgImage;
           if (index === 0) bgImage = 'url("./bg.png")';
           else if (index === 1) bgImage = 'url("./bg1.png")';

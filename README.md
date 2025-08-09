@@ -53,8 +53,8 @@ VITE_API_URL=http://localhost:5000
 ## Quick Start
 1. **Clone the repo:**
    ```bash
-   git clone <your-repository-url>
-   cd MyGPT-public
+   git clone https://github.com/vishwafernando/MyGPT.git
+   cd MyGPT-main
    ```
 2. **Install dependencies:**
    ```bash

@@ -30,6 +30,7 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
   const [isProcessing, setIsProcessing] = useState(false); 
   const [chat, setChat] = useState(null);
   const [shouldKeepAnswerVisible, setShouldKeepAnswerVisible] = useState(false);
+  const [submittedPreview, setSubmittedPreview] = useState({ text: "", imagePath: "" });
 
   useEffect(() => {
     if (data?._id) {
@@ -126,6 +127,8 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
                 dbData: {},
                 aiData: {},
               });
+              setHasSubmitted(false);
+              setSubmittedPreview({ text: "", imagePath: "" });
             }
           }, 50);
 
@@ -146,6 +149,8 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
                 dbData: {},
                 aiData: {},
               });
+              setHasSubmitted(false);
+              setSubmittedPreview({ text: "", imagePath: "" });
             }
           }, 3000);
         });
@@ -161,6 +166,18 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
     latestHistory.length > 0 ? latestHistory[latestHistory.length - 1] : null;
   const lastAIMsg =
     latestHistory.length > 1 ? latestHistory[latestHistory.length - 2] : null;
+
+  const isSubmittedInHistory = !!(submittedPreview.text || submittedPreview.imagePath) &&
+    latestHistory.some((msg) => {
+      if (msg.role !== "user") return false;
+      const textMatches = submittedPreview.text
+        ? msg.parts?.[0]?.text === submittedPreview.text
+        : true;
+      const imageMatches = submittedPreview.imagePath
+        ? msg.img === submittedPreview.imagePath
+        : true;
+      return textMatches && imageMatches;
+    });
 
   const showAIAnswer = answer && answer.trim().length > 0;
 
@@ -282,16 +299,18 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const text = e.target.text.value;
+    if (e && typeof e.preventDefault === 'function') e.preventDefault();
+    const text = (currentInput || "").trim();
     if (formRef.current) formRef.current.reset();
-    if (!text) return;
+    if (!text && !img.dbData?.filePath) return;
 
-    const textarea = e.target.text;
-    textarea.style.height = "auto";
+    const textarea = formRef.current?.elements?.text;
+    if (textarea) textarea.style.height = "auto";
 
+    const imagePathAtSubmit = img.dbData?.filePath || "";
+    setSubmittedPreview({ text, imagePath: imagePathAtSubmit });
     setQuestion(text);
-    setCurrentInput(""); 
+    setCurrentInput("");
     setHasSubmitted(true);
 
     try {
@@ -334,15 +353,13 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
       />
 
       {img.isLoading && <div className="">Loading...</div>}
-
-      {/* Only show user message with image after form submission */}
-      {hasSubmitted && (img.dbData?.filePath || showUserMsg) && (
+      {hasSubmitted && !isSubmittedInHistory && (showUserMsg || submittedPreview.imagePath) && (
         <div className="message user">
-          {img.dbData?.filePath && (
+          {submittedPreview.imagePath && (
             <div className="message-image">
               <IKImage
                 urlEndpoint={import.meta.env.VITE_IMAGE_KIT_ENDPOINT}
-                path={img.dbData.filePath}
+                path={submittedPreview.imagePath}
                 width="300"
                 height="200"
                 transformation={[{ width: 300, height: 200 }]}
@@ -389,7 +406,7 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
       <div className="endchat" ref={endRef}></div>
 
       <form className="newForm" onSubmit={handleSubmit} ref={formRef}>
-        <Upload setImg={setImg} />
+        <Upload setImg={setImg} resetTrigger={hasSubmitted ? 1 : 0} />
         <input id="file" type="file" multiple={false} hidden />
         <textarea
           name="text"
@@ -402,7 +419,7 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey) {
               e.preventDefault();
-              handleSubmit(e);
+              handleSubmit();
             }
           }}
           onChange={(e) => {

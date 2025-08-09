@@ -9,9 +9,9 @@ const AuthCallback = () => {
     if (isLoaded) {
       if (isSignedIn) {
         const urlParams = new URLSearchParams(window.location.search);
-        const fromSignUp = urlParams.get('from') === 'signup' || 
-                          sessionStorage.getItem('fromSignUp') === 'true';
-        
+        const fromSignUp = urlParams.get('from') === 'signup' ||
+          sessionStorage.getItem('fromSignUp') === 'true';
+
         if (fromSignUp) {
           sessionStorage.removeItem('fromSignUp');
           window.location.href = "/sign-in";

@@ -1,4 +1,3 @@
-/* Spinner loading screen for chat page */
 .chat-loading-spinner {
   display: flex;
   height: 100%;
@@ -217,7 +216,7 @@
 .download-modal-btn svg {
   margin-right: 4px;
 }
-/* Fullscreen image modal styles */
+
 .image-modal-overlay {
   position: fixed;
   top: 0;

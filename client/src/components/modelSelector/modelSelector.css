@@ -4,7 +4,7 @@
   margin-bottom: 1rem;
 }
 
-.model-selector.open { margin-bottom: 0; } /* remove push-down; we'll use drop-up when needed */
+.model-selector.open { margin-bottom: 0; }
 
 .model-selector-button {
   display: flex;
@@ -62,9 +62,9 @@
   overflow: hidden;
   max-height: 280px;
   overflow-y: auto;
-  width: max-content;           /* shrink to content */
-  min-width: 240px;             /* reasonable minimum */
-  max-width: 560px;             /* prevent spanning the screen */
+  width: max-content;
+  min-width: 240px;
+  max-width: 560px;
 }
 
 .model-dropdown.drop-up {
@@ -116,7 +116,7 @@
   font-size: 0.8rem;
   color: #a0aec0;
   margin-left: 1.6rem;
-  max-width: 48ch;              /* limit measure so content doesn't force wide dropdown */
+  max-width: 48ch;
   white-space: normal;
 }
 
@@ -137,26 +137,25 @@
   }
 }
 
-/* Small screens: make selector full-width and dropdown scrollable */
 @media (max-width: 640px) {
   .model-selector {
-    display: inline-block;   /* not centered */
+    display: inline-block;
     width: auto;
   }
   .model-selector-button {
-    width: auto;             /* shrink to content */
-    min-width: 180px;        /* like 768px breakpoint */
-    max-width: 300px;        /* avoid very wide button */
+    width: auto;
+    min-width: 180px;
+    max-width: 300px;
     padding: 0.6rem 0.8rem;
     font-size: 0.9rem;
   }
   .model-dropdown {
     left: 0;
     right: auto;
-    transform: none;         /* align with button */
+    transform: none;
     width: max-content;
-    min-width: 100%;         /* at least as wide as button */
-    max-width: 340px;        /* reduce width on mobile */
+    min-width: 100%;
+    max-width: 340px;
     max-height: 50vh;
     overflow-y: auto;
   }

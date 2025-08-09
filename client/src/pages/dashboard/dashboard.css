@@ -35,12 +35,11 @@
   margin-right: 10px;
 }
 
-/* Option cards container: equal-height grid */
 .dashboard .options {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  align-items: stretch; /* force children to same height per row */
+  align-items: stretch;
   gap: 32px;
 }
 
@@ -50,7 +49,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* vertically center content within card */
+  justify-content: center;
   align-items: flex-start;
   gap: 10px;
   font-weight: 300;
@@ -59,7 +58,7 @@
   border: 1px solid #555;
   background: #1f1f27;
   border-radius: 20px;
-  min-height: 140px; /* consistent card height */
+  min-height: 140px;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   cursor: pointer;
 }
@@ -132,7 +131,6 @@
 .formContainer button img,
 .formContainer .upload-label img { width: 16px; height: 16px; filter: invert(1); }
 
-/* Match newprompt form control styles for upload button and image preview */
 .formContainer .upload-label {
   border-radius: 50%;
   background: #605e68;
@@ -166,7 +164,7 @@
   object-fit: cover;
   width: auto;
   height: auto;
-  filter: none; /* ensure image colors are not inverted */
+  filter: none;
 }
 
 @media (max-width: 768px) {

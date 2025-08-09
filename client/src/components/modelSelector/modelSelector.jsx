@@ -29,7 +29,6 @@ const ModelSelector = ({ currentModel, onModelChange }) => {
     setIsOpen(false);
   };
 
-  // Close on outside click or Escape key
   useEffect(() => {
     if (!isOpen) return;
     const handleClickOutside = (e) => {

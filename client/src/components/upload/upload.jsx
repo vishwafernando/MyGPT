@@ -26,7 +26,7 @@ const authenticator = async () => {
 
 import "./upload.css";
 
-const Upload = ({ setImg }) => {
+const Upload = ({ setImg, resetTrigger = 0 }) => {
   const ikUploadRef = useRef(null);
   const [preview, setPreview] = useState(null); 
   const [isLoading, setIsLoading] = useState(false);
@@ -72,6 +72,10 @@ const Upload = ({ setImg }) => {
   };
 
   const onUploadProgress = (progress) => {};
+  useEffect(() => {
+    setPreview(null);
+    setIsLoading(false);
+  }, [resetTrigger]);
 
   return (
     <div className="upload-preview-container">

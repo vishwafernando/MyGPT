@@ -11,7 +11,6 @@
   overflow: hidden;
 }
 
-/* Animated background */
 .bg-animation {
   position: absolute;
   top: 0;
@@ -60,7 +59,6 @@
   50% { transform: translateY(-20px) scale(1.1); }
 }
 
-/* Main content styling */
 .loading-content {
   display: flex;
   flex-direction: column;
@@ -71,7 +69,6 @@
   justify-content: center;
 }
 
-/* Brand styling */
 .brand-container {
   margin-bottom: 3rem;
   text-align: center;
@@ -99,13 +96,11 @@
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* Loader container */
 .loader-container {
   margin: 2rem 0;
   animation: fadeInUp 1s ease-out 0.3s both;
 }
 
-/* Loading text animation */
 .loading-text-container {
   display: flex;
   align-items: center;
@@ -147,7 +142,6 @@
   }
 }
 
-/* Progress bar */
 .progress-container {
   width: 300px;
   margin-top: 3rem;
@@ -176,7 +170,6 @@
   100% { width: 100%; transform: translateX(100%); }
 }
 
-/* Footer - Fixed to bottom */
 .loading-footer {
   position: absolute;
   left: 0;
@@ -195,7 +188,6 @@
   letter-spacing: 1px;
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -218,7 +210,6 @@
   }
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .brand-title {
     font-size: 2.5rem;
@@ -233,7 +224,7 @@
   }
   
   .orb-1, .orb-2, .orb-3 {
-    display: none; /* Hide floating orbs on mobile for better performance */
+    display: none;
   }
 }
 
