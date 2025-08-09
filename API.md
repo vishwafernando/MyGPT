@@ -51,6 +51,49 @@ Get ImageKit authentication parameters for client-side upload.
 }
 ```
 
+### Generate Image (Cloudflare Workers AI)
+
+#### POST /api/generate-image
+
+Generate an image using Cloudflare Workers AI (Stable Diffusion XL). Requires authentication and Cloudflare credentials in backend env.
+
+**Headers:**
+- `Authorization: Bearer <clerk_token>`
+- `Content-Type: application/json`
+
+**Body:**
+```json
+{
+  "prompt": "A futuristic cityscape at dusk",
+  "guidance_scale": 7.5,
+  "width": 1024,
+  "height": 1024
+}
+```
+
+**Response (success):**
+```json
+{
+  "success": true,
+  "imagePath": "/ai-generated/cf-sdxl/cf-sdxl-generated-...png",
+  "imageUrl": "https://ik.imagekit.io/<your_id>/ai-generated/cf-sdxl/...png",
+  "modelUsed": "cloudflare-stable-diffusion-xl-base-1.0",
+  "prompt": "...",
+  "guidance_scale": 7.5,
+  "dimensions": { "width": 1024, "height": 1024 }
+}
+```
+
+**Response (failure):**
+```json
+{
+  "success": false,
+  "message": "An error occurred during Cloudflare image generation: <details>",
+  "originalPrompt": "...",
+  "error": "..."
+}
+```
+
 ### User Chats
 
 #### GET /api/userchats
@@ -239,3 +282,5 @@ Required environment variables for the backend:
 | `CLERK_SECRET_KEY` | Clerk secret key |
 | `CLIENT_URL` | Frontend URL for CORS |
 | `NODE_ENV` | Environment (development/production) |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare account ID for Workers AI |
+| `CLOUDFLARE_AI_API_TOKEN` | Cloudflare API Token with Workers AI permission |

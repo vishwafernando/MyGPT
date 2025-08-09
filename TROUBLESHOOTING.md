@@ -229,6 +229,27 @@ npm install concurrently --save-dev
    - Verify CORS settings
 
 ### 6. CORS and Network Issues
+### 8. Cloudflare Workers AI Issues
+
+#### ❌ "Cloudflare AI returned 401/403"
+**Causes:** Missing/invalid token or permissions
+
+**Solutions:**
+1. Verify backend env vars:
+   ```env
+   CLOUDFLARE_ACCOUNT_ID=...
+   CLOUDFLARE_AI_API_TOKEN=...
+   ```
+2. Ensure the API token has Account → Workers AI permissions
+3. Regenerate the token and restart the backend
+
+#### ❌ "Unexpected response type" or 4xx/5xx
+**Solutions:**
+1. Confirm Account ID is correct (matches your Cloudflare account)
+2. Check Cloudflare status and quotas
+3. Try a simpler prompt; reduce image size to 768x768
+4. Inspect server logs for detailed error output
+
 
 #### ❌ "Blocked by CORS policy"
 **Symptoms:**

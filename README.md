@@ -1,20 +1,19 @@
 
-# MyGPT - AI Chat Application (Local Development)
+# MyGPT — AI Chat Application 
 
-MyGPT is a full-stack AI chat app built for local development. It features:
+A full‑stack AI chat application for local development.
 
-- AI-powered chat using Google Gemini
-- Secure user authentication with Clerk
+## Features
+- AI chat via Google Gemini
+- Clerk authentication (sign-in/sign-up, user session)
 - Chat history and conversation management
-- Image upload and processing via ImageKit
-- Responsive, modern UI
-- Easy local setup and development
+- Image upload with ImageKit
+- Modern, responsive UI
 
-**Note:** This project is designed for local use only. No production domain or secrets are included. All configuration is via environment variables.
+**Note**: This repo is dev‑focused. No production domains or secrets are included. Configure via environment variables.
 
 ## Tech Stack
-
-**Frontend:** React 19, Vite, React Router DOM, Clerk React, React Query, React Markdown, PrismJS
+**Frontend:** React 19, Vite, React Router DOM, Clerk React, React Query, React Markdown, PrismJS  
 **Backend:** Node.js, Express.js, MongoDB, Mongoose, Clerk SDK, ImageKit, dotenv, CORS, Helmet
 
 ## Prerequisites
@@ -25,8 +24,10 @@ MyGPT is a full-stack AI chat app built for local development. It features:
 - Git
 
 ## Environment Variables
+All keys are loaded from `.env` files. Use the provided examples:
 
-All API keys and credentials are loaded from `.env` files. Never commit real secrets. Provide `.env.example` files for both client and backend.
+- `backend/env.example` → copy to `backend/.env`
+- `client/env.example` → copy to `client/.env`
 
 **Backend (`backend/.env`):**
 ```
@@ -49,9 +50,7 @@ VITE_IMAGE_KIT_PUBLIC_KEY=your_imagekit_public_key
 VITE_API_URL=http://localhost:5000
 ```
 
-## Setup & Usage
-
-
+## Quick Start
 1. **Clone the repo:**
    ```bash
    git clone <your-repository-url>
@@ -62,16 +61,23 @@ VITE_API_URL=http://localhost:5000
    npm run install
    ```
 3. **Configure environment:**
-   - Copy `.env.example` to `.env` in both `client` and `backend` folders
-   - Add your API keys and credentials
-4. **Install concurrently (already configured in root devDependencies):**
-   - Skipped unless you removed it.
-5. **Run development servers:**
+   - Copy `backend/env.example` → `backend/.env`
+   - Copy `client/env.example` → `client/.env`
+   - Fill in your keys and URLs
+4. **Run dev servers:**
    ```bash
    npm run dev
    ```
    - Frontend: http://localhost:5173
    - Backend: http://localhost:5000
+
+## Scripts
+- `npm run install` — Install backend and frontend deps
+- `npm run dev` — Run backend (5000) and frontend (5173) together
+- `npm run build` — Build frontend (
+  outputs to `client/dist`)
+- `npm start` — Start backend only (requires `backend/.env`)
+- `npm run deploy` — Build and start via PM2 using `ecosystem.config.json`
 
 ## API Endpoints
 
@@ -88,7 +94,7 @@ VITE_API_URL=http://localhost:5000
 ## Project Structure
 
 ```
-MyGPT-public/
+MyGPT-main/
 ├── backend/                 # Express.js backend
 │   ├── models/             # MongoDB models
 │   │   ├── chat.js         # Chat conversation model
@@ -108,12 +114,15 @@ MyGPT-public/
 └── package.json            # Root dependencies
 ```
 
-## Troubleshooting
+## Docs & Troubleshooting
+- API reference: see `API.md`
+- Troubleshooting: see `TROUBLESHOOTING.md`
 
-- **MongoDB:** Check connection string, service status, Atlas network access
-- **Clerk:** Verify keys, redirect URLs, dashboard config
-- **Gemini API:** Check key, quotas, permissions
-- **ImageKit:** Check credentials, dashboard, CORS
+Common tips:
+- **MongoDB:** Check connection string(add the db username and password when using mongodb atlas link), service status, Atlas network access
+- **Clerk:** verify keys, allowed redirect URLs, and paths in clerk dashboard
+- **Gemini:** Check API key, quotas, permissions
+- **ImageKit:** verify endpoint and keys, credentials, imagekit.io dashboard and CORS
 - **CORS:** Ensure both servers run on correct ports, restart after env changes
 
 ## Contributing
@@ -136,3 +145,4 @@ If you have issues, check troubleshooting, search issues, or open a new issue wi
 - Gemini AI by Google
 - Clerk authentication
 - ImageKit for uploads
+- Cloudflare workers AI 

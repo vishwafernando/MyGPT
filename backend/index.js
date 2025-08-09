@@ -20,7 +20,7 @@ const __dirname = path.dirname(__filename);
 
 console.log('Checking environment variables...');
 const requiredEnvVars = ['MONGO_URL', 'IMAGE_KIT_ENDPOINT', 'IMAGE_KIT_PUBLIC_KEY', 'IMAGE_KIT_PRIVATE_KEY', 'CLERK_PUBLISHABLE_KEY', 'CLERK_SECRET_KEY'];
-const optionalEnvVars = ['CLIENT_URL', 'GEMINI_API_KEY', 'STABILITY_API_KEY']; 
+const optionalEnvVars = ['CLIENT_URL', 'GEMINI_API_KEY', 'STABILITY_API_KEY', 'CLOUDFLARE_ACCOUNT_ID', 'CLOUDFLARE_AI_API_TOKEN']; 
 
 for (const envVar of requiredEnvVars) {
   if (!process.env[envVar]) {

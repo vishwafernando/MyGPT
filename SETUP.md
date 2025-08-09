@@ -55,6 +55,13 @@ You'll need to create accounts and get API keys from these services. Do this fir
 - Install MongoDB locally
 - Use: `mongodb://localhost:27017/mygpt`
 
+### ⚡ Cloudflare Workers AI (Free tier available)
+1. Visit `https://dash.cloudflare.com/`
+2. Note your Account ID (on the right sidebar of your account overview)
+3. Create an API Token with permissions:
+   - Account → Workers AI → Read (or appropriate access)
+4. Copy and save the token ✅
+
 ## Step 3: Clone and Setup
 
 ```bash
@@ -79,6 +86,8 @@ IMAGE_KIT_PRIVATE_KEY=your_imagekit_private_key_here
 CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key_here
 CLERK_SECRET_KEY=your_clerk_secret_key_here
 CLIENT_URL=http://localhost:5173
+CLOUDFLARE_ACCOUNT_ID=your_cloudflare_account_id
+CLOUDFLARE_AI_API_TOKEN=your_cloudflare_ai_api_token
 ```
 
 ### Frontend Environment
@@ -125,6 +134,7 @@ This starts:
 4. Sign up/sign in using Clerk
 5. Try sending a message to test Gemini AI
 6. Try uploading an image to test ImageKit
+7. Generate an image (Cloudflare Workers AI): open the image tool and run a prompt
 
 ## Troubleshooting Quick Fixes
 
