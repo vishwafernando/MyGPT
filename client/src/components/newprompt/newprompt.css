@@ -1,0 +1,284 @@
+.newForm {
+  width: 92%;
+  max-width: 960px;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+  gap: 12px;
+  padding: 14px 14px;
+  backdrop-filter: blur(8px);
+}
+
+.model-selector {
+  margin-bottom: 1.5rem;
+}
+
+.endchat {
+  padding-bottom: 80px;
+}
+
+input,
+textarea {
+  flex: 1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 12px 14px;
+  outline: none;
+  background-color: #1f1f27;
+  color: #f5f5f7;
+  font-family: inherit;
+  font-size: 15px;
+  resize: none;
+  min-height: 20px;
+  overflow-y: auto;
+  line-height: 1.4;
+  border-radius: 12px;
+}
+
+textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #605e68;
+  border-radius: 3px;
+}
+
+.newForm button {
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6c5ce7, #3b82f6);
+  border: none;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: 0;
+  flex-shrink: 0;
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.newForm button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.newForm button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.newForm label {
+  border-radius: 50%;
+  background-color: #605e68;
+  border: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.newForm button img {
+  display: flex;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  filter: invert(1);
+}
+
+.newForm label img {
+  width: 16px;
+  height: 16px;
+}
+
+.message.user .message-image {
+  margin-bottom: 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.message.user .user-uploaded-image {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.message.user .message-text {
+  width: 100%;
+  word-wrap: break-word;
+  margin-top: 4px;
+}
+
+.model-thinking {
+  padding: 12px 16px;
+  background-color: #1f1f1f;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #888;
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing .dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing .dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typing {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.ai-generated-image {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ai-generated-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.ai-generated-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .newForm {
+    width: calc(100% - 28px);
+    margin: 14px auto;
+    padding: 12px 10px;
+    border-radius: 16px;
+    gap: 8px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    transform: none;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+  }
+
+  input,
+  textarea {
+    padding: 10px 12px;
+    font-size: 16px;
+    min-height: 44px;
+    border-radius: 10px;
+    background: #232136;
+    color: #fff;
+    box-sizing: border-box;
+  }
+
+  .newForm button {
+    padding: 12px 14px;
+    margin-top: 0;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #6c5ce7, #3b82f6);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .newForm button:active {
+    background: #48465a;
+  }
+
+  .newForm label {
+    padding: 10px;
+  }
+
+  .newForm button img,
+  .newForm label img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .model-thinking {
+    padding: 10px 14px;
+    margin-bottom: 10px;
+  }
+
+  .typing .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .ai-generated-image {
+    margin: 8px 0;
+  }
+
+  .message.user .message-image {
+    margin-bottom: 6px;
+  }
+
+  .endchat {
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px) {
+  .newForm {
+    width: 85%;
+    padding: 20px 16px;
+    gap: 16px;
+    margin-bottom: 0px;
+  }
+
+  input,
+  textarea {
+    padding: 12px 4px;
+  }
+  .endchat {
+    padding-bottom: 100px;
+  }
+}

@@ -1,0 +1,25 @@
+.signinpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 100%);
+  padding: 20px;
+}
+
+.signin-container {
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.signin-header {
+  margin-bottom: 2rem;
+}
+
+.signin-header h1 {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}

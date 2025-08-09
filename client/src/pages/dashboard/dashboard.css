@@ -1,0 +1,305 @@
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.texts {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  gap: 50px;
+}
+
+.texts h1 {
+  font-size: 64px;
+  background: linear-gradient(to right, #217bfe, #e55571);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dashboard .logo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dashboard .logo img {
+  width: 64px;
+  height: 64px;
+  margin-right: 10px;
+}
+
+/* Option cards container: equal-height grid */
+.dashboard .options {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch; /* force children to same height per row */
+  gap: 32px;
+}
+
+.dashboard .option {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertically center content within card */
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  padding: 20px;
+  border: 1px solid #555;
+  background: #1f1f27;
+  border-radius: 20px;
+  min-height: 140px; /* consistent card height */
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  cursor: pointer;
+}
+
+.dashboard .option:hover {
+  transform: translateY(-3px);
+  border-color: #6b6b6b;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+.dashboard .option img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.dashboard .formContainer {
+  width: 92%;
+  max-width: 960px;
+  margin: 12px auto 40px auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 14px;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+}
+
+.formContainer form {
+  height: 100%;
+  width: 100%;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.formContainer textarea {
+  flex: 1;
+  padding: 14px 16px;
+  background: #1f1f27;
+  border: 1px solid rgba(255,255,255,0.12);
+  outline: none;
+  color: #f5f5f7;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.4;
+  max-height: 140px;
+  overflow-y: hidden;
+}
+
+.formContainer button {
+  background: linear-gradient(135deg, #6c5ce7, #3b82f6);
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0px;
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.formContainer button:hover { filter: brightness(1.05); transform: translateY(-1px); }
+.formContainer button:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+.formContainer button img,
+.formContainer .upload-label img { width: 16px; height: 16px; filter: invert(1); }
+
+/* Match newprompt form control styles for upload button and image preview */
+.formContainer .upload-label {
+  border-radius: 50%;
+  background: #605e68;
+  border: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.formContainer .upload-label img {
+  width: 16px;
+  height: 16px;
+  filter: invert(1);
+}
+
+.formContainer .img-preview-wrapper {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  background: #232136;
+  max-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.formContainer .img-preview {
+  max-height: 56px;
+  object-fit: cover;
+  width: auto;
+  height: auto;
+  filter: none; /* ensure image colors are not inverted */
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .texts {
+    width: 98%;
+    gap: 18px;
+    padding-top: 10px;
+  }
+
+  .texts h1 {
+    font-size: 28px;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .dashboard .logo {
+    gap: 8px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dashboard .logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 0;
+  }
+
+  .dashboard .options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .dashboard .option {
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 14px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    min-height: 88px;
+  }
+
+  .dashboard .option img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+
+  .dashboard .formContainer {
+    width: calc(100% - 28px);
+    margin: 14px auto;
+    padding: 12px 10px;
+    border-radius: 16px;
+    gap: 8px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: none;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+  }
+
+  .formContainer form {
+    gap: 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .formContainer textarea {
+    padding: 10px 12px;
+    font-size: 16px;
+    min-height: 44px;
+    border-radius: 10px;
+    background: #232136;
+    color: #fff;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,0.12);
+    outline: none;
+    flex: 1;
+  }
+
+  .formContainer button {
+    padding: 10px;
+    margin-top: 0;
+    margin-right: 0;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    background: #605e68;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .formContainer button:active {
+    background: #48465a;
+  }
+
+  .formContainer img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .texts {
+    width: 70%;
+    gap: 40px;
+  }
+
+  .texts h1 {
+    font-size: 48px;
+  }
+
+  .dashboard .options { gap: 24px; }
+
+  .dashboard .formContainer {
+    width: 80%;
+    left: 50%;
+  }
+}

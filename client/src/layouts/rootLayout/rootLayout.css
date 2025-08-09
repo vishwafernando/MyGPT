@@ -1,0 +1,242 @@
+.rootLayout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  position: fixed;
+  top: 1rem;
+  left: 10rem;
+  right: 10rem;
+  z-index: 20;
+  background: rgba(146, 146, 146, 0.178);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6rem; 
+  padding: 1rem 0;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-brand:hover {
+  opacity: 0.8;
+}
+
+.navbar-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: shake-rotate-shake 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-direction: normal;
+}
+
+.navbar-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.navbar-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-btn.primary {
+  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  color: white;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
+.navbar-btn.primary:hover {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+}
+
+.navbar-btn.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.rootLayout header {
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  height: 64px;
+  background: #01060de0;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  color: #ffffff;
+}
+
+.rootLayout header .logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  gap: 8px;
+}
+
+.rootLayout header .navbar .logo img {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: shake-rotate-shake 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-direction: normal;
+}
+
+@keyframes shake-rotate-shake {
+  0% {
+    transform: translateX(0) rotate(0);
+  }
+  6% {
+    transform: translateX(-6px) rotate(0);
+  }
+  12% {
+    transform: translateX(6px) rotate(0);
+  }
+  18% {
+    transform: translateX(-6px) rotate(0);
+  }
+  24% {
+    transform: translateX(6px) rotate(0);
+  }
+  30% {
+    transform: translateX(0) rotate(0);
+  }
+  50% {
+    transform: translateX(0) rotate(360deg);
+  }
+  56% {
+    transform: translateX(-6px) rotate(360deg);
+  }
+  62% {
+    transform: translateX(6px) rotate(360deg);
+  }
+  68% {
+    transform: translateX(-6px) rotate(360deg);
+  }
+  74% {
+    transform: translateX(6px) rotate(360deg);
+  }
+  80% {
+    transform: translateX(0) rotate(360deg);
+  }
+  100% {
+    transform: translateX(0) rotate(360deg);
+  }
+}
+
+.rootLayout main {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain; 
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+
+.rootLayout main.dashboard-main {
+  padding-top: 0;
+}
+
+.rootLayout main.auth-main {
+  padding-top: 0;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 1024px) {
+  .navbar {
+    top: 1rem;
+    left: 4rem;
+    right: 4rem;
+    border-radius: 4rem;
+  }
+
+  .navbar-title { font-size: 1.1rem; }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    top: 1rem;
+    left: 2rem;
+    right: 2rem;
+    border-radius: 3rem;
+  }
+
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .navbar-title { font-size: 1rem; }
+
+  .navbar-logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .rootLayout main { padding-top: 0; }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    top: 0.5rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    border-radius: 3rem;
+  }
+
+  .navbar-buttons {
+    gap: 0.5rem;
+  }
+
+  .navbar-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .navbar-title {
+    display: none;
+  }
+
+  .rootLayout main { padding-top: 0; }
+}

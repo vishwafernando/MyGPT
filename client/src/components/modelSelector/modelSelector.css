@@ -1,0 +1,166 @@
+.model-selector {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.model-selector.open { margin-bottom: 0; } /* remove push-down; we'll use drop-up when needed */
+
+.model-selector-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  border: 1px solid #4a5568;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  min-width: 200px;
+  justify-content: space-between;
+  outline: none;
+}
+
+.model-selector-button:hover {
+  background: linear-gradient(135deg, #34495e, #2c3e50);
+  border-color: #7c3aed;
+  transform: translateY(-1px);
+}
+
+.model-icon {
+  font-size: 1.1rem;
+}
+
+.model-name {
+  flex: 1;
+  text-align: left;
+  font-weight: 500;
+}
+
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.model-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #1a202c;
+  border: 1px solid #4a5568;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  margin-top: 4px;
+  overflow: hidden;
+  max-height: 280px;
+  overflow-y: auto;
+  width: max-content;           /* shrink to content */
+  min-width: 240px;             /* reasonable minimum */
+  max-width: 560px;             /* prevent spanning the screen */
+}
+
+.model-dropdown.drop-up {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.model-option {
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid #2d3748;
+  outline: none;
+}
+
+.model-option:last-child {
+  border-bottom: none;
+}
+
+.model-option:hover {
+  background: #2d3748;
+}
+
+.model-option.selected {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+}
+
+.model-option-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.model-option .model-name {
+  font-weight: 600;
+  color: white;
+  flex: 1;
+}
+
+.selected-indicator {
+  color: #10b981;
+  font-weight: bold;
+}
+
+.model-description {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  margin-left: 1.6rem;
+  max-width: 48ch;              /* limit measure so content doesn't force wide dropdown */
+  white-space: normal;
+}
+
+@media (max-width: 768px) {
+  .model-selector {
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem; 
+  }
+  
+  .model-selector-button {
+    min-width: 180px;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .model-option {
+    padding: 0.8rem;
+  }
+}
+
+/* Small screens: make selector full-width and dropdown scrollable */
+@media (max-width: 640px) {
+  .model-selector {
+    display: inline-block;   /* not centered */
+    width: auto;
+  }
+  .model-selector-button {
+    width: auto;             /* shrink to content */
+    min-width: 180px;        /* like 768px breakpoint */
+    max-width: 300px;        /* avoid very wide button */
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  .model-dropdown {
+    left: 0;
+    right: auto;
+    transform: none;         /* align with button */
+    width: max-content;
+    min-width: 100%;         /* at least as wide as button */
+    max-width: 340px;        /* reduce width on mobile */
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+  .model-option {
+    padding: 0.9rem;
+  }
+}
