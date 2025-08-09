@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import ErrorScreen from "../../components/common/ErrorScreen";
 import { Mosaic } from "react-loading-indicators";
 import "./chatpage.css";
 import NewPrompt from "../../components/newprompt/newprompt";
 import { useQuery } from "@tanstack/react-query";
-import { use } from "react";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "@clerk/clerk-react";
 import ReactMarkdown from "react-markdown";
@@ -13,6 +12,7 @@ import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { IKImage } from "imagekitio-react";
 
 const Chatpage = () => {
+  // Direct image download handler
   const handleDirectDownload = async () => {
     if (!modalImg) return;
     const imageUrl = `${import.meta.env.VITE_IMAGE_KIT_ENDPOINT}/${modalImg}`;
@@ -65,12 +65,14 @@ const Chatpage = () => {
         if (!res.ok) throw new Error("API Error");
         return await res.json();
       } catch (e) {
+        // For production, do not show actual error
         throw new Error("Something went wrong. Please try again later.");
       }
     },
   });
 
   if (error) {
+    // Use ErrorScreen for all errors
     return <ErrorScreen message="Something went wrong. Please try again later." />;
   }
   if (isPending) {
@@ -145,7 +147,7 @@ const Chatpage = () => {
                     <div className="message-text">
                       <ReactMarkdown
                         components={{
-                          code({ node, inline, className, children, ...props }) {
+                          code({ inline, className, children, ...props }) {
                             const match = /language-(\w+)/.exec(className || "");
                             return !inline && match ? (
                               <SyntaxHighlighter
@@ -181,7 +183,7 @@ const Chatpage = () => {
           )}
         </div>
       </div>
-      {/* fullscreen image */}
+      {/* Modal for fullscreen image */}
       {modalImg && (
         <div className="image-modal-overlay" onClick={handleCloseModal}>
           <div className="image-modal-content" onClick={e => e.stopPropagation()}>

@@ -1,7 +1,5 @@
-import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { IKImage, IKContext, IKUpload } from "imagekitio-react";
-import { data } from "react-router-dom";
+import { IKContext, IKUpload } from "imagekitio-react";
 
 const urlEndpoint = import.meta.env.VITE_IMAGE_KIT_ENDPOINT;
 const publicKey = import.meta.env.VITE_IMAGE_KIT_PUBLIC_KEY;
@@ -71,7 +69,7 @@ const Upload = ({ setImg, resetTrigger = 0 }) => {
     reader.readAsDataURL(file);
   };
 
-  const onUploadProgress = (progress) => {};
+  const onUploadProgress = () => {};
   useEffect(() => {
     setPreview(null);
     setIsLoading(false);

@@ -3,7 +3,7 @@
 */
 
 import { useEffect, useState, useRef } from "react";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import {
   FiCircle,
   FiCode,
@@ -13,7 +13,7 @@ import {
 } from "react-icons/fi";
 
 import "./Carousel.css";
-import { image, img } from "framer-motion/client";
+// removed unused imports
 
 const DEFAULT_ITEMS = [
   {
@@ -177,13 +177,13 @@ export default function Carousel({
         onAnimationComplete={handleAnimationComplete}
       >
         {carouselItems.map((item, index) => {
-          const range = [
-            -(index + 1) * trackItemOffset,
-            -index * trackItemOffset,
-            -(index - 1) * trackItemOffset,
-          ];
-          const outputRange = [90, 0, -90];
-          const rotateY = useTransform(x, range, outputRange, { clamp: false });
+          // Derive rotation from x without React hooks (avoids rules-of-hooks violation)
+          const rotateY = x.to((val) => {
+            const delta = val + index * trackItemOffset; // 0 when centered on this item
+            const angle = -(delta / trackItemOffset) * 90; // map [-offset,0,offset] -> [90,0,-90]
+            // Clamp to keep visuals reasonable
+            return Math.max(-90, Math.min(90, angle));
+          });
           let bgImage;
           if (index === 0) bgImage = 'url("./bg.png")';
           else if (index === 1) bgImage = 'url("./bg1.png")';

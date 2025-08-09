@@ -7,8 +7,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Upload from "../../components/upload/upload";
 
 const Dashboard = () => {
-  const { userId, getToken } = useAuth();
-  const token = getToken();
+  const { getToken } = useAuth();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const [loading, setLoading] = React.useState(true);
@@ -56,6 +55,7 @@ const Dashboard = () => {
     if (!text && !imgPath) return;
 
     mutation.mutate({ text: text || "[image]", imgPath });
+    // Reset input
     setMessage("");
     if (textAreaRef.current) {
       textAreaRef.current.style.height = "auto";

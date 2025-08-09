@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import "./newprompt.css";
 import Upload from "../upload/upload.jsx";
 import { IKImage } from "imagekitio-react";
@@ -51,7 +51,7 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
       }
       hasRun.current = false;
     }
-  }, [data?._id, currentModel]);
+  }, [data?._id, data?.history, currentModel]);
 
   useEffect(() => {
     endRef.current.scrollIntoView({ behavior: "smooth" });
@@ -162,10 +162,6 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
   });
 
   const latestHistory = data?.history || [];
-  const lastUserMsg =
-    latestHistory.length > 0 ? latestHistory[latestHistory.length - 1] : null;
-  const lastAIMsg =
-    latestHistory.length > 1 ? latestHistory[latestHistory.length - 2] : null;
 
   const isSubmittedInHistory = !!(submittedPreview.text || submittedPreview.imagePath) &&
     latestHistory.some((msg) => {
@@ -212,7 +208,7 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
     }
   };
 
-  const add = async (text) => {
+  const add = useCallback(async (text) => {
     if (isProcessing) {
       return;
     }
@@ -296,7 +292,7 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
     } finally {
       setIsProcessing(false);
     }
-  };
+  }, [isProcessing, chat, currentModel, img.aiData, getToken, mutation]);
 
   const handleSubmit = async (e) => {
     if (e && typeof e.preventDefault === 'function') e.preventDefault();
@@ -342,7 +338,7 @@ const NewPrompt = ({ data, initialText = "", initialImg = "" }) => {
         }, 100);
       }
     }
-  }, [chat, data?.history, isProcessing, answer, currentModel]);
+  }, [chat, data?.history, isProcessing, answer, currentModel, add]);
 
   return (
     <>

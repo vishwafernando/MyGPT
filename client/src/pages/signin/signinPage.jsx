@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useAuth, SignIn } from "@clerk/clerk-react";
 import Aurora from "../Backgrounds/Aurora";
 import "./signinPage.css";
